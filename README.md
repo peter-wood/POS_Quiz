@@ -1,5 +1,5 @@
- POS_Quiz
- ========
+POS_Quiz
+======== 
 
 <h5>This is a part of speech quiz which is intended to be used in grammar courses, introductions to linguistics, etc.</h5>
 
