@@ -1,0 +1,141 @@
+doctype html
+// The jade script transforms database entries into html buttons and builds the rest of the webpage to interact with the client side js logic
+head
+  title= title
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet', href='css/bootstrap.min.css')
+  link(rel='stylesheet', href='css/bootstrap-theme.min.css')
+  link(rel='stylesheet', href='css/custom.css')
+  // if lt IE 9
+    script(src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js")
+    script(src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js")
+    
+body
+  div(class='navbar navbar-inverse navbar-fixed-top', role='navigation')
+    .container
+      .navbar-header
+        button(type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse')
+          span(class='sr-only')
+            |Toggle navication
+          span(class='icon-bar')
+          span(class='icon-bar')
+          span(class='icon-bar')
+        a(class='navbar-brand', href='#')|POS-Quiz
+      div(class='collapse navbar-collapse')
+        ul(class='nav navbar-nav')
+          li
+            a(href='#MyInstructions', data-toggle='modal')|Instructions
+          li
+            a(href='#MyInformation' id='information', data-toggle='modal')|Information
+          li
+            a(href='#MyContact' id='contact', data-toggle='modal')|Contact
+          li
+            a(href='http://www.usask.ca' id='uofs')|University of Saskatchewan
+
+  div(class='container theme-showcase')
+    .page-header
+       span(id='theResults')
+         h5 Identify the parts of speech for the following sentence.
+
+    .jumbotron
+      div(id='buttonGroup')  
+ 
+    div(class="modal fade" id="myModal", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+      div(class="modal-dialog")
+        div(class="modal-content")
+          div(class="modal-header")
+            button(type='button', class='close', data-dismiss='modal', aria-hidden='true')|&times;
+            span(class="modal-title", id="myModalLabel")
+              h4 &times;
+          div(class="modal-body")
+            div(class='list-group')
+              a(class='list-group-item', id='adj') Adjective
+              a(class='list-group-item', id='adv') Adverb
+              a(class='list-group-item', id='con') Conjunction
+              a(class='list-group-item', id='det') Determiner
+              a(class='list-group-item', id='nou') Noun
+              a(class='list-group-item', id='pre') Preposition
+              a(class='list-group-item', id='pro') Pronoun
+              a(class='list-group-item', id='pnn') Proper Noun
+              a(class='list-group-item', id='ver') Verb
+              a(class='list-group-item', id='vmo') Verb - Modal
+              a(class='list-group-item', id='vpt') Verb - Past Tense
+              a(class='list-group-item', id='vpp') Verb - Past Participle
+              a(class='list-group-item', id='vpr') Verb - Present Participle
+          //div(class="modal-footer", id='POSopts')
+           // button(type="button", class="btn btn-info", data-dismiss="modal") Close
+
+
+    div(class="modal fade" id="MyInstructions", tabindex="-1", role="dialog", aria-labelledby="myInstructionsLabel", aria-hidden="true")
+      div(class="modal-dialog")
+        div(class="modal-content")
+          div(class="modal-header")
+            button(type='button', class='close', data-dismiss='modal', aria-hidden='true')|&times;
+            span(class="modal-title", id="myInstructionsLabel")
+              h4 Instructions
+          div(class="modal-body")
+            h3 Instructions
+            p Click on the words displayed in blue to assign the proper part of speech to them.
+            p Elements that are displayed in grey are excluded as the have a part of speech tag not covered in this quiz.
+            p Elements in green have been correctly identified.
+            p Red elements have been labelled incorrectly. You can try to identify them again.
+            p Your mistakes are counted in the status line.
+            p When you have completed a sentence, or wish to skip the one you are working on currently, you can click 'New Sentence' to load a different one.
+          div(class="modal-footer", id='POSopts')
+            button(type="button", class="btn btn-info", data-dismiss="modal") Close
+
+    div(class="modal fade" id="MyInformation", tabindex="-1", role="dialog", aria-labelledby="myInfoLabel", aria-hidden="true")
+      div(class="modal-dialog")
+        div(class="modal-content")
+          div(class="modal-header")
+            button(type='button', class='close', data-dismiss='modal', aria-hidden='true')|&times;
+            span(class="modal-title", id="myInfolLabel")
+              h4 Information
+          div(class="modal-body")
+                h3 Information
+                p The sentences are taken from the POS-tagged version of the Brown corpus which is distributed with the Natural Language Tool Kit (
+                  a(href='http://www.nltk.org')
+                    | nltk
+                  | ).
+                p The sentences have been automatically tagged and there is a chance that elements have been assigned an incorrect or unusual tag.
+                p Please keep this in mind when using this program.
+                h3 Information on the Corpus
+                p BROWN CORPUS
+                p A Standard Corpus of Present-Day Edited American
+                p English, for use with Digital Computers.
+                p by W. N. Francis and H. Kucera (1964)
+                p Department of Linguistics, Brown University
+                p Providence, Rhode Island, USA
+                p Revised 1971, Revised and Amplified 1979
+                p 
+                  a(href='http://www.hit.uib.no/icame/brown/bcm.html')
+                    | http://www.hit.uib.no/icame/brown/bcm.html
+                p Distributed with the permission of the copyright holder,
+                p redistribution permitted.
+
+          div(class="modal-footer", id='POSopts')
+            button(type="button", class="btn btn-info", data-dismiss="modal") Close
+
+    div(class="modal fade" id="MyContact", tabindex="-1", role="dialog", aria-labelledby="myConatactLabel", aria-hidden="true")
+      div(class="modal-dialog")
+        div(class="modal-content")
+          div(class="modal-header")
+            button(type='button', class='close', data-dismiss='modal', aria-hidden='true')|&times;
+            span(class="modal-title", id="myContactLabel")
+               h4 Contact
+          div(class="modal-body")
+            h4 Contact:
+            p If you have any questions, comments, or concerns, please contact the developer at:
+            p peter(dot)wood(at)usask(dot)ca
+          div(class="modal-footer", id='POSopts')
+            button(type="button", class="btn btn-info", data-dismiss="modal") Close
+
+     //.row
+      // div(class='col-md-2 col-md-offset-5')
+     button(type='button', id='newSent', class='btn btn-primary btn-large center-block')
+           |New Sentence
+   
+script(src='js/jquery.js')
+script(src='js/bootstrap.min.js')
+script(src='js/engine.io.js')
+script(src='js/custom.js')

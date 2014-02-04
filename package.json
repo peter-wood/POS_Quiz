@@ -1,0 +1,15 @@
+{
+  "name": "POS_Quiz",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.4.7",
+    "jade": "*",
+    "engine.io": "*",
+    "engine.io-client": "*",
+    "mongodb": "*"
+  }
+}
