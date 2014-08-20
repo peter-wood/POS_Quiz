@@ -1,4 +1,4 @@
-
+#!/usr/bin/env node
 /**
  * Module dependencies.
  */
@@ -10,7 +10,7 @@ var path = require('path');
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8040);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon());
@@ -30,8 +30,8 @@ var server = require('http').createServer(app);
 var wsserver = require('./lib/wsserver');
 wsserver.wsStart(server);
 
-server.listen(3000,function() {
-  console.log('Server listening on port 3000');
+server.listen(app.get('port'),function() {
+  console.log('Server listening on port ' + app.get('port'));
 });
 
 app.get('/', routes.index);

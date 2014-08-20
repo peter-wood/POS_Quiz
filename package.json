@@ -7,9 +7,9 @@
   },
   "dependencies": {
     "express": "3.4.7",
-    "jade": "*",
-    "engine.io": "*",
-    "engine.io-client": "*",
-    "mongodb": "*"
+    "jade": "1.0.2",
+    "engine.io": "0.8.2",
+    "engine.io-client": "0.8.2",
+    "mongodb": "1.3.23"
   }
 }
